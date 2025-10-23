@@ -86,3 +86,11 @@ async function deleteItem(req, res) {
         res.status(500).json({ error: 'Erro ao deletar item' });
     }
 }
+
+module.exports = {
+    getAll,
+    getById,
+    createItem,
+    updateItem,
+    deleteItem,
+};
