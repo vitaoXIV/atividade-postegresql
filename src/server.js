@@ -49,10 +49,10 @@ const server = app.listen(PORT, '0,0,0,0', () => {
 
 //Tratamento de erros não capturados
 server.on('error', (err) => {
-    if (error.sycall !== 'listen') {
-        throw error;
+    if (err.syscall !== 'listen') {
+        throw err;
     }
-    switch (error.code) {
+    switch (err.code) {
         case 'EACCES':
             console.error(`Port ${PORT} requires elevated privileges`);
             process.exit(1);
@@ -62,6 +62,6 @@ server.on('error', (err) => {
             process.exit(1);
             break;
         default:
-            throw error;        
+            throw err;        
     }
 });
